@@ -1,0 +1,2368 @@
+{
+  "protocol_sha256": "4298ccaf64619b053c9c3f4c21f0b52ddc83ca8f3eae685ae27fb4876b9f4c98",
+  "python": "3.12.14",
+  "runs": [
+    {
+      "best_point": [
+        -3.9075830187988844e-05,
+        3.3995949542173794e-05,
+        2.6616230848403243e-05,
+        -3.640459120853796e-05,
+        5.652979335299719e-05
+      ],
+      "best_value": 7.911980632323385e-09,
+      "evaluations": 750,
+      "met_target": true,
+      "objective": "sphere",
+      "rechecked_value": 7.911980632323385e-09,
+      "seed": 7,
+      "stop_reasons": {
+        "ftarget": "1e-08"
+      },
+      "trace": [
+        {
+          "best_value": 32.7120344507809,
+          "evaluations": 10
+        },
+        {
+          "best_value": 17.62194954860341,
+          "evaluations": 20
+        },
+        {
+          "best_value": 8.526679681040031,
+          "evaluations": 30
+        },
+        {
+          "best_value": 4.198434474215503,
+          "evaluations": 40
+        },
+        {
+          "best_value": 4.198434474215503,
+          "evaluations": 50
+        },
+        {
+          "best_value": 3.908415266176279,
+          "evaluations": 60
+        },
+        {
+          "best_value": 3.908415266176279,
+          "evaluations": 70
+        },
+        {
+          "best_value": 3.908415266176279,
+          "evaluations": 80
+        },
+        {
+          "best_value": 3.0989070598630524,
+          "evaluations": 90
+        },
+        {
+          "best_value": 1.0225428568189239,
+          "evaluations": 100
+        },
+        {
+          "best_value": 1.0225428568189239,
+          "evaluations": 110
+        },
+        {
+          "best_value": 1.0225428568189239,
+          "evaluations": 120
+        },
+        {
+          "best_value": 0.5346569526529705,
+          "evaluations": 130
+        },
+        {
+          "best_value": 0.5346569526529705,
+          "evaluations": 140
+        },
+        {
+          "best_value": 0.5346569526529705,
+          "evaluations": 150
+        },
+        {
+          "best_value": 0.3527175668487412,
+          "evaluations": 160
+        },
+        {
+          "best_value": 0.3527175668487412,
+          "evaluations": 170
+        },
+        {
+          "best_value": 0.24926781895537709,
+          "evaluations": 180
+        },
+        {
+          "best_value": 0.03813988631161063,
+          "evaluations": 190
+        },
+        {
+          "best_value": 0.03813988631161063,
+          "evaluations": 200
+        },
+        {
+          "best_value": 0.03813988631161063,
+          "evaluations": 210
+        },
+        {
+          "best_value": 0.03813988631161063,
+          "evaluations": 220
+        },
+        {
+          "best_value": 0.03813988631161063,
+          "evaluations": 230
+        },
+        {
+          "best_value": 0.011777050782840923,
+          "evaluations": 240
+        },
+        {
+          "best_value": 0.011777050782840923,
+          "evaluations": 250
+        },
+        {
+          "best_value": 0.011777050782840923,
+          "evaluations": 260
+        },
+        {
+          "best_value": 0.011777050782840923,
+          "evaluations": 270
+        },
+        {
+          "best_value": 0.010636383724746803,
+          "evaluations": 280
+        },
+        {
+          "best_value": 0.010636383724746803,
+          "evaluations": 290
+        },
+        {
+          "best_value": 0.0032935548242356825,
+          "evaluations": 300
+        },
+        {
+          "best_value": 0.0032935548242356825,
+          "evaluations": 310
+        },
+        {
+          "best_value": 0.0032935548242356825,
+          "evaluations": 320
+        },
+        {
+          "best_value": 0.0032935548242356825,
+          "evaluations": 330
+        },
+        {
+          "best_value": 0.0032935548242356825,
+          "evaluations": 340
+        },
+        {
+          "best_value": 0.0032935548242356825,
+          "evaluations": 350
+        },
+        {
+          "best_value": 0.0032935548242356825,
+          "evaluations": 360
+        },
+        {
+          "best_value": 0.0031620826455795873,
+          "evaluations": 370
+        },
+        {
+          "best_value": 0.0031620826455795873,
+          "evaluations": 380
+        },
+        {
+          "best_value": 0.0016893594981788026,
+          "evaluations": 390
+        },
+        {
+          "best_value": 0.00019094402215435205,
+          "evaluations": 400
+        },
+        {
+          "best_value": 0.00019094402215435205,
+          "evaluations": 410
+        },
+        {
+          "best_value": 0.00019094402215435205,
+          "evaluations": 420
+        },
+        {
+          "best_value": 0.00019094402215435205,
+          "evaluations": 430
+        },
+        {
+          "best_value": 0.00019094402215435205,
+          "evaluations": 440
+        },
+        {
+          "best_value": 0.0001634677268791892,
+          "evaluations": 450
+        },
+        {
+          "best_value": 0.0001634677268791892,
+          "evaluations": 460
+        },
+        {
+          "best_value": 0.0001634677268791892,
+          "evaluations": 470
+        },
+        {
+          "best_value": 2.8238229539401842e-05,
+          "evaluations": 480
+        },
+        {
+          "best_value": 2.8238229539401842e-05,
+          "evaluations": 490
+        },
+        {
+          "best_value": 2.8238229539401842e-05,
+          "evaluations": 500
+        },
+        {
+          "best_value": 2.8238229539401842e-05,
+          "evaluations": 510
+        },
+        {
+          "best_value": 1.088701501888956e-05,
+          "evaluations": 520
+        },
+        {
+          "best_value": 1.088701501888956e-05,
+          "evaluations": 530
+        },
+        {
+          "best_value": 1.088701501888956e-05,
+          "evaluations": 540
+        },
+        {
+          "best_value": 1.088701501888956e-05,
+          "evaluations": 550
+        },
+        {
+          "best_value": 1.088701501888956e-05,
+          "evaluations": 560
+        },
+        {
+          "best_value": 9.826555678598022e-06,
+          "evaluations": 570
+        },
+        {
+          "best_value": 3.02949544506351e-06,
+          "evaluations": 580
+        },
+        {
+          "best_value": 8.691414888318108e-07,
+          "evaluations": 590
+        },
+        {
+          "best_value": 8.691414888318108e-07,
+          "evaluations": 600
+        },
+        {
+          "best_value": 3.4438676996930015e-07,
+          "evaluations": 610
+        },
+        {
+          "best_value": 3.4438676996930015e-07,
+          "evaluations": 620
+        },
+        {
+          "best_value": 3.4438676996930015e-07,
+          "evaluations": 630
+        },
+        {
+          "best_value": 3.4438676996930015e-07,
+          "evaluations": 640
+        },
+        {
+          "best_value": 1.1674556243430553e-07,
+          "evaluations": 650
+        },
+        {
+          "best_value": 1.1674556243430553e-07,
+          "evaluations": 660
+        },
+        {
+          "best_value": 1.1674556243430553e-07,
+          "evaluations": 670
+        },
+        {
+          "best_value": 1.1674556243430553e-07,
+          "evaluations": 680
+        },
+        {
+          "best_value": 8.600796199503957e-08,
+          "evaluations": 690
+        },
+        {
+          "best_value": 8.600796199503957e-08,
+          "evaluations": 700
+        },
+        {
+          "best_value": 6.455198955503975e-08,
+          "evaluations": 710
+        },
+        {
+          "best_value": 6.455198955503975e-08,
+          "evaluations": 720
+        },
+        {
+          "best_value": 3.408838340903332e-08,
+          "evaluations": 730
+        },
+        {
+          "best_value": 3.408838340903332e-08,
+          "evaluations": 740
+        },
+        {
+          "best_value": 7.911980632323385e-09,
+          "evaluations": 750
+        }
+      ],
+      "validation_reevaluations": 1
+    },
+    {
+      "best_point": [
+        1.280806714165221e-05,
+        -7.563607064819762e-05,
+        -7.224146700691726e-06,
+        5.498580142691641e-05,
+        -1.4719000915929573e-05
+      ],
+      "best_value": 9.177137409080747e-09,
+      "evaluations": 790,
+      "met_target": true,
+      "objective": "sphere",
+      "rechecked_value": 9.177137409080747e-09,
+      "seed": 42,
+      "stop_reasons": {
+        "ftarget": "1e-08"
+      },
+      "trace": [
+        {
+          "best_value": 26.173596283410888,
+          "evaluations": 10
+        },
+        {
+          "best_value": 18.597013800087616,
+          "evaluations": 20
+        },
+        {
+          "best_value": 11.665187455157803,
+          "evaluations": 30
+        },
+        {
+          "best_value": 3.526681041320482,
+          "evaluations": 40
+        },
+        {
+          "best_value": 3.526681041320482,
+          "evaluations": 50
+        },
+        {
+          "best_value": 2.948685296937825,
+          "evaluations": 60
+        },
+        {
+          "best_value": 1.909348562416104,
+          "evaluations": 70
+        },
+        {
+          "best_value": 1.909348562416104,
+          "evaluations": 80
+        },
+        {
+          "best_value": 0.362082300525186,
+          "evaluations": 90
+        },
+        {
+          "best_value": 0.362082300525186,
+          "evaluations": 100
+        },
+        {
+          "best_value": 0.362082300525186,
+          "evaluations": 110
+        },
+        {
+          "best_value": 0.27543592891078056,
+          "evaluations": 120
+        },
+        {
+          "best_value": 0.27543592891078056,
+          "evaluations": 130
+        },
+        {
+          "best_value": 0.1471868539385056,
+          "evaluations": 140
+        },
+        {
+          "best_value": 0.059791519297189,
+          "evaluations": 150
+        },
+        {
+          "best_value": 0.059791519297189,
+          "evaluations": 160
+        },
+        {
+          "best_value": 0.059791519297189,
+          "evaluations": 170
+        },
+        {
+          "best_value": 0.059791519297189,
+          "evaluations": 180
+        },
+        {
+          "best_value": 0.059791519297189,
+          "evaluations": 190
+        },
+        {
+          "best_value": 0.026263419096564843,
+          "evaluations": 200
+        },
+        {
+          "best_value": 0.026263419096564843,
+          "evaluations": 210
+        },
+        {
+          "best_value": 0.026263419096564843,
+          "evaluations": 220
+        },
+        {
+          "best_value": 0.026263419096564843,
+          "evaluations": 230
+        },
+        {
+          "best_value": 0.01454754588454557,
+          "evaluations": 240
+        },
+        {
+          "best_value": 0.00319497087535662,
+          "evaluations": 250
+        },
+        {
+          "best_value": 0.00319497087535662,
+          "evaluations": 260
+        },
+        {
+          "best_value": 0.00319497087535662,
+          "evaluations": 270
+        },
+        {
+          "best_value": 0.00319497087535662,
+          "evaluations": 280
+        },
+        {
+          "best_value": 0.00319497087535662,
+          "evaluations": 290
+        },
+        {
+          "best_value": 0.0024489540339613577,
+          "evaluations": 300
+        },
+        {
+          "best_value": 0.0024489540339613577,
+          "evaluations": 310
+        },
+        {
+          "best_value": 0.0012379110514906023,
+          "evaluations": 320
+        },
+        {
+          "best_value": 0.0012379110514906023,
+          "evaluations": 330
+        },
+        {
+          "best_value": 0.0012379110514906023,
+          "evaluations": 340
+        },
+        {
+          "best_value": 0.0010238317532955201,
+          "evaluations": 350
+        },
+        {
+          "best_value": 0.0004577269238700013,
+          "evaluations": 360
+        },
+        {
+          "best_value": 0.00012605870782748553,
+          "evaluations": 370
+        },
+        {
+          "best_value": 8.515011005863374e-05,
+          "evaluations": 380
+        },
+        {
+          "best_value": 8.515011005863374e-05,
+          "evaluations": 390
+        },
+        {
+          "best_value": 7.15467290259271e-05,
+          "evaluations": 400
+        },
+        {
+          "best_value": 7.15467290259271e-05,
+          "evaluations": 410
+        },
+        {
+          "best_value": 2.5806504066920917e-05,
+          "evaluations": 420
+        },
+        {
+          "best_value": 2.4640353117933956e-05,
+          "evaluations": 430
+        },
+        {
+          "best_value": 2.1852726279621733e-05,
+          "evaluations": 440
+        },
+        {
+          "best_value": 2.1852726279621733e-05,
+          "evaluations": 450
+        },
+        {
+          "best_value": 2.1852726279621733e-05,
+          "evaluations": 460
+        },
+        {
+          "best_value": 2.1790024467890136e-05,
+          "evaluations": 470
+        },
+        {
+          "best_value": 2.018497121410913e-05,
+          "evaluations": 480
+        },
+        {
+          "best_value": 1.0655175535751128e-05,
+          "evaluations": 490
+        },
+        {
+          "best_value": 1.0655175535751128e-05,
+          "evaluations": 500
+        },
+        {
+          "best_value": 1.0655175535751128e-05,
+          "evaluations": 510
+        },
+        {
+          "best_value": 1.0655175535751128e-05,
+          "evaluations": 520
+        },
+        {
+          "best_value": 1.0107419232001306e-05,
+          "evaluations": 530
+        },
+        {
+          "best_value": 2.877660158591983e-06,
+          "evaluations": 540
+        },
+        {
+          "best_value": 2.877660158591983e-06,
+          "evaluations": 550
+        },
+        {
+          "best_value": 2.112879899769407e-06,
+          "evaluations": 560
+        },
+        {
+          "best_value": 2.112879899769407e-06,
+          "evaluations": 570
+        },
+        {
+          "best_value": 7.972199343642561e-07,
+          "evaluations": 580
+        },
+        {
+          "best_value": 6.094359810940709e-07,
+          "evaluations": 590
+        },
+        {
+          "best_value": 6.094359810940709e-07,
+          "evaluations": 600
+        },
+        {
+          "best_value": 6.094359810940709e-07,
+          "evaluations": 610
+        },
+        {
+          "best_value": 6.094359810940709e-07,
+          "evaluations": 620
+        },
+        {
+          "best_value": 6.094359810940709e-07,
+          "evaluations": 630
+        },
+        {
+          "best_value": 5.676759971744511e-07,
+          "evaluations": 640
+        },
+        {
+          "best_value": 1.9707173097557875e-07,
+          "evaluations": 650
+        },
+        {
+          "best_value": 1.9707173097557875e-07,
+          "evaluations": 660
+        },
+        {
+          "best_value": 1.9707173097557875e-07,
+          "evaluations": 670
+        },
+        {
+          "best_value": 1.9707173097557875e-07,
+          "evaluations": 680
+        },
+        {
+          "best_value": 1.9707173097557875e-07,
+          "evaluations": 690
+        },
+        {
+          "best_value": 6.416810659439471e-08,
+          "evaluations": 700
+        },
+        {
+          "best_value": 2.3170027003732746e-08,
+          "evaluations": 710
+        },
+        {
+          "best_value": 2.3170027003732746e-08,
+          "evaluations": 720
+        },
+        {
+          "best_value": 2.3170027003732746e-08,
+          "evaluations": 730
+        },
+        {
+          "best_value": 2.3170027003732746e-08,
+          "evaluations": 740
+        },
+        {
+          "best_value": 2.3170027003732746e-08,
+          "evaluations": 750
+        },
+        {
+          "best_value": 2.3170027003732746e-08,
+          "evaluations": 760
+        },
+        {
+          "best_value": 2.3170027003732746e-08,
+          "evaluations": 770
+        },
+        {
+          "best_value": 1.2053343975487435e-08,
+          "evaluations": 780
+        },
+        {
+          "best_value": 9.177137409080747e-09,
+          "evaluations": 790
+        }
+      ],
+      "validation_reevaluations": 1
+    },
+    {
+      "best_point": [
+        4.601902348771257e-05,
+        4.4384288773374395e-05,
+        1.5338896757984467e-05,
+        2.811791582358381e-05,
+        -3.873765499905806e-05
+      ],
+      "best_value": 6.614220471521229e-09,
+      "evaluations": 860,
+      "met_target": true,
+      "objective": "sphere",
+      "rechecked_value": 6.61422047152123e-09,
+      "seed": 2026,
+      "stop_reasons": {
+        "ftarget": "1e-08"
+      },
+      "trace": [
+        {
+          "best_value": 37.81009069870197,
+          "evaluations": 10
+        },
+        {
+          "best_value": 30.77327799524072,
+          "evaluations": 20
+        },
+        {
+          "best_value": 25.4995859118101,
+          "evaluations": 30
+        },
+        {
+          "best_value": 22.02285647184199,
+          "evaluations": 40
+        },
+        {
+          "best_value": 7.497731295779088,
+          "evaluations": 50
+        },
+        {
+          "best_value": 6.147104707823515,
+          "evaluations": 60
+        },
+        {
+          "best_value": 4.890116185084457,
+          "evaluations": 70
+        },
+        {
+          "best_value": 3.795942805153479,
+          "evaluations": 80
+        },
+        {
+          "best_value": 3.795942805153479,
+          "evaluations": 90
+        },
+        {
+          "best_value": 2.8408764049938586,
+          "evaluations": 100
+        },
+        {
+          "best_value": 2.7787217635224573,
+          "evaluations": 110
+        },
+        {
+          "best_value": 2.7787217635224573,
+          "evaluations": 120
+        },
+        {
+          "best_value": 2.7787217635224573,
+          "evaluations": 130
+        },
+        {
+          "best_value": 2.420435056233161,
+          "evaluations": 140
+        },
+        {
+          "best_value": 1.3066430874769825,
+          "evaluations": 150
+        },
+        {
+          "best_value": 0.33445228619608713,
+          "evaluations": 160
+        },
+        {
+          "best_value": 0.33445228619608713,
+          "evaluations": 170
+        },
+        {
+          "best_value": 0.2568802475923093,
+          "evaluations": 180
+        },
+        {
+          "best_value": 0.2568802475923093,
+          "evaluations": 190
+        },
+        {
+          "best_value": 0.23352571221203883,
+          "evaluations": 200
+        },
+        {
+          "best_value": 0.23352571221203883,
+          "evaluations": 210
+        },
+        {
+          "best_value": 0.1031296110724664,
+          "evaluations": 220
+        },
+        {
+          "best_value": 0.07113449013085815,
+          "evaluations": 230
+        },
+        {
+          "best_value": 0.07113449013085815,
+          "evaluations": 240
+        },
+        {
+          "best_value": 0.04105649712059371,
+          "evaluations": 250
+        },
+        {
+          "best_value": 0.04068977726354424,
+          "evaluations": 260
+        },
+        {
+          "best_value": 0.04068977726354424,
+          "evaluations": 270
+        },
+        {
+          "best_value": 0.04068977726354424,
+          "evaluations": 280
+        },
+        {
+          "best_value": 0.04068977726354424,
+          "evaluations": 290
+        },
+        {
+          "best_value": 0.017279847825967205,
+          "evaluations": 300
+        },
+        {
+          "best_value": 0.014632251788520066,
+          "evaluations": 310
+        },
+        {
+          "best_value": 0.007381107299446877,
+          "evaluations": 320
+        },
+        {
+          "best_value": 0.0038156869949365086,
+          "evaluations": 330
+        },
+        {
+          "best_value": 0.0038156869949365086,
+          "evaluations": 340
+        },
+        {
+          "best_value": 0.0037880648618367563,
+          "evaluations": 350
+        },
+        {
+          "best_value": 0.0037880648618367563,
+          "evaluations": 360
+        },
+        {
+          "best_value": 0.001447041330406684,
+          "evaluations": 370
+        },
+        {
+          "best_value": 0.0010630356873297165,
+          "evaluations": 380
+        },
+        {
+          "best_value": 0.0010630356873297165,
+          "evaluations": 390
+        },
+        {
+          "best_value": 0.0005500111559148369,
+          "evaluations": 400
+        },
+        {
+          "best_value": 0.0005500111559148369,
+          "evaluations": 410
+        },
+        {
+          "best_value": 0.0005500111559148369,
+          "evaluations": 420
+        },
+        {
+          "best_value": 0.0002135332336458672,
+          "evaluations": 430
+        },
+        {
+          "best_value": 0.0002135332336458672,
+          "evaluations": 440
+        },
+        {
+          "best_value": 0.0002135332336458672,
+          "evaluations": 450
+        },
+        {
+          "best_value": 0.0002135332336458672,
+          "evaluations": 460
+        },
+        {
+          "best_value": 0.00014996966655987984,
+          "evaluations": 470
+        },
+        {
+          "best_value": 0.00014996966655987984,
+          "evaluations": 480
+        },
+        {
+          "best_value": 3.8913333428224224e-05,
+          "evaluations": 490
+        },
+        {
+          "best_value": 3.8913333428224224e-05,
+          "evaluations": 500
+        },
+        {
+          "best_value": 3.851299832331125e-05,
+          "evaluations": 510
+        },
+        {
+          "best_value": 3.851299832331125e-05,
+          "evaluations": 520
+        },
+        {
+          "best_value": 3.851299832331125e-05,
+          "evaluations": 530
+        },
+        {
+          "best_value": 3.851299832331125e-05,
+          "evaluations": 540
+        },
+        {
+          "best_value": 1.6692329958967574e-05,
+          "evaluations": 550
+        },
+        {
+          "best_value": 1.6692329958967574e-05,
+          "evaluations": 560
+        },
+        {
+          "best_value": 7.663645971727737e-06,
+          "evaluations": 570
+        },
+        {
+          "best_value": 7.663645971727737e-06,
+          "evaluations": 580
+        },
+        {
+          "best_value": 5.655676410458407e-06,
+          "evaluations": 590
+        },
+        {
+          "best_value": 5.655676410458407e-06,
+          "evaluations": 600
+        },
+        {
+          "best_value": 5.655676410458407e-06,
+          "evaluations": 610
+        },
+        {
+          "best_value": 1.1173482860283503e-06,
+          "evaluations": 620
+        },
+        {
+          "best_value": 1.1173482860283503e-06,
+          "evaluations": 630
+        },
+        {
+          "best_value": 1.1173482860283503e-06,
+          "evaluations": 640
+        },
+        {
+          "best_value": 1.1173482860283503e-06,
+          "evaluations": 650
+        },
+        {
+          "best_value": 9.344863200750188e-07,
+          "evaluations": 660
+        },
+        {
+          "best_value": 9.110033509450005e-07,
+          "evaluations": 670
+        },
+        {
+          "best_value": 4.0290663882720436e-07,
+          "evaluations": 680
+        },
+        {
+          "best_value": 1.8679390745311803e-07,
+          "evaluations": 690
+        },
+        {
+          "best_value": 1.8679390745311803e-07,
+          "evaluations": 700
+        },
+        {
+          "best_value": 1.8679390745311803e-07,
+          "evaluations": 710
+        },
+        {
+          "best_value": 6.46136667129007e-08,
+          "evaluations": 720
+        },
+        {
+          "best_value": 6.46136667129007e-08,
+          "evaluations": 730
+        },
+        {
+          "best_value": 6.46136667129007e-08,
+          "evaluations": 740
+        },
+        {
+          "best_value": 6.46136667129007e-08,
+          "evaluations": 750
+        },
+        {
+          "best_value": 6.46136667129007e-08,
+          "evaluations": 760
+        },
+        {
+          "best_value": 6.437947726290625e-08,
+          "evaluations": 770
+        },
+        {
+          "best_value": 6.437947726290625e-08,
+          "evaluations": 780
+        },
+        {
+          "best_value": 6.437947726290625e-08,
+          "evaluations": 790
+        },
+        {
+          "best_value": 3.98899909871198e-08,
+          "evaluations": 800
+        },
+        {
+          "best_value": 3.98899909871198e-08,
+          "evaluations": 810
+        },
+        {
+          "best_value": 3.000253453733562e-08,
+          "evaluations": 820
+        },
+        {
+          "best_value": 1.3156127334118072e-08,
+          "evaluations": 830
+        },
+        {
+          "best_value": 1.3156127334118072e-08,
+          "evaluations": 840
+        },
+        {
+          "best_value": 1.2340544883268181e-08,
+          "evaluations": 850
+        },
+        {
+          "best_value": 6.614220471521229e-09,
+          "evaluations": 860
+        }
+      ],
+      "validation_reevaluations": 1
+    },
+    {
+      "best_point": [
+        1.1893799650681759e-05,
+        6.576031719805394e-06,
+        -1.692028429007151e-05,
+        -4.808406445946241e-06,
+        4.818767697498493e-06
+      ],
+      "best_value": 7.2376724841647396e-09,
+      "evaluations": 1060,
+      "met_target": true,
+      "objective": "rotated_quadratic",
+      "rechecked_value": 7.2376724841647396e-09,
+      "seed": 7,
+      "stop_reasons": {
+        "ftarget": "1e-08"
+      },
+      "trace": [
+        {
+          "best_value": 25348.483886425678,
+          "evaluations": 10
+        },
+        {
+          "best_value": 20030.408650796908,
+          "evaluations": 20
+        },
+        {
+          "best_value": 3266.673883818372,
+          "evaluations": 30
+        },
+        {
+          "best_value": 2954.3446292928165,
+          "evaluations": 40
+        },
+        {
+          "best_value": 2954.3446292928165,
+          "evaluations": 50
+        },
+        {
+          "best_value": 1529.1578828714628,
+          "evaluations": 60
+        },
+        {
+          "best_value": 1529.1578828714628,
+          "evaluations": 70
+        },
+        {
+          "best_value": 436.50540094320814,
+          "evaluations": 80
+        },
+        {
+          "best_value": 201.99619744123197,
+          "evaluations": 90
+        },
+        {
+          "best_value": 201.99619744123197,
+          "evaluations": 100
+        },
+        {
+          "best_value": 201.99619744123197,
+          "evaluations": 110
+        },
+        {
+          "best_value": 201.99619744123197,
+          "evaluations": 120
+        },
+        {
+          "best_value": 201.99619744123197,
+          "evaluations": 130
+        },
+        {
+          "best_value": 201.99619744123197,
+          "evaluations": 140
+        },
+        {
+          "best_value": 187.84714781489893,
+          "evaluations": 150
+        },
+        {
+          "best_value": 130.04009821918817,
+          "evaluations": 160
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 170
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 180
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 190
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 200
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 210
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 220
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 230
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 240
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 250
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 260
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 270
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 280
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 290
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 300
+        },
+        {
+          "best_value": 16.92271554047963,
+          "evaluations": 310
+        },
+        {
+          "best_value": 10.758143492552666,
+          "evaluations": 320
+        },
+        {
+          "best_value": 10.758143492552666,
+          "evaluations": 330
+        },
+        {
+          "best_value": 10.286947570642775,
+          "evaluations": 340
+        },
+        {
+          "best_value": 8.254568622084024,
+          "evaluations": 350
+        },
+        {
+          "best_value": 8.254568622084024,
+          "evaluations": 360
+        },
+        {
+          "best_value": 8.254568622084024,
+          "evaluations": 370
+        },
+        {
+          "best_value": 8.254568622084024,
+          "evaluations": 380
+        },
+        {
+          "best_value": 8.254568622084024,
+          "evaluations": 390
+        },
+        {
+          "best_value": 7.91548017875673,
+          "evaluations": 400
+        },
+        {
+          "best_value": 5.608018518405387,
+          "evaluations": 410
+        },
+        {
+          "best_value": 3.0478195543681137,
+          "evaluations": 420
+        },
+        {
+          "best_value": 2.250491803112359,
+          "evaluations": 430
+        },
+        {
+          "best_value": 2.250491803112359,
+          "evaluations": 440
+        },
+        {
+          "best_value": 2.250491803112359,
+          "evaluations": 450
+        },
+        {
+          "best_value": 1.492422555935502,
+          "evaluations": 460
+        },
+        {
+          "best_value": 1.492422555935502,
+          "evaluations": 470
+        },
+        {
+          "best_value": 0.4920819143823458,
+          "evaluations": 480
+        },
+        {
+          "best_value": 0.4920819143823458,
+          "evaluations": 490
+        },
+        {
+          "best_value": 0.4920819143823458,
+          "evaluations": 500
+        },
+        {
+          "best_value": 0.4920819143823458,
+          "evaluations": 510
+        },
+        {
+          "best_value": 0.357167321849913,
+          "evaluations": 520
+        },
+        {
+          "best_value": 0.3269501896754667,
+          "evaluations": 530
+        },
+        {
+          "best_value": 0.20983904935093955,
+          "evaluations": 540
+        },
+        {
+          "best_value": 0.18220536089856804,
+          "evaluations": 550
+        },
+        {
+          "best_value": 0.18220536089856804,
+          "evaluations": 560
+        },
+        {
+          "best_value": 0.1023411556298808,
+          "evaluations": 570
+        },
+        {
+          "best_value": 0.0371290507061713,
+          "evaluations": 580
+        },
+        {
+          "best_value": 0.0371290507061713,
+          "evaluations": 590
+        },
+        {
+          "best_value": 0.00632563144969023,
+          "evaluations": 600
+        },
+        {
+          "best_value": 0.00632563144969023,
+          "evaluations": 610
+        },
+        {
+          "best_value": 0.00632563144969023,
+          "evaluations": 620
+        },
+        {
+          "best_value": 0.00632563144969023,
+          "evaluations": 630
+        },
+        {
+          "best_value": 0.004699543454757583,
+          "evaluations": 640
+        },
+        {
+          "best_value": 0.004699543454757583,
+          "evaluations": 650
+        },
+        {
+          "best_value": 0.003417779305306382,
+          "evaluations": 660
+        },
+        {
+          "best_value": 0.0023587071333018165,
+          "evaluations": 670
+        },
+        {
+          "best_value": 0.0023587071333018165,
+          "evaluations": 680
+        },
+        {
+          "best_value": 0.0012223739823375812,
+          "evaluations": 690
+        },
+        {
+          "best_value": 0.0009893436751216927,
+          "evaluations": 700
+        },
+        {
+          "best_value": 0.0009893436751216927,
+          "evaluations": 710
+        },
+        {
+          "best_value": 0.0006681306866452719,
+          "evaluations": 720
+        },
+        {
+          "best_value": 0.0005342969999312334,
+          "evaluations": 730
+        },
+        {
+          "best_value": 5.127767021901974e-05,
+          "evaluations": 740
+        },
+        {
+          "best_value": 5.127767021901974e-05,
+          "evaluations": 750
+        },
+        {
+          "best_value": 5.127767021901974e-05,
+          "evaluations": 760
+        },
+        {
+          "best_value": 5.127767021901974e-05,
+          "evaluations": 770
+        },
+        {
+          "best_value": 1.3532965769140023e-05,
+          "evaluations": 780
+        },
+        {
+          "best_value": 1.3532965769140023e-05,
+          "evaluations": 790
+        },
+        {
+          "best_value": 8.754226313514578e-06,
+          "evaluations": 800
+        },
+        {
+          "best_value": 8.754226313514578e-06,
+          "evaluations": 810
+        },
+        {
+          "best_value": 8.754226313514578e-06,
+          "evaluations": 820
+        },
+        {
+          "best_value": 8.754226313514578e-06,
+          "evaluations": 830
+        },
+        {
+          "best_value": 8.754226313514578e-06,
+          "evaluations": 840
+        },
+        {
+          "best_value": 8.754226313514578e-06,
+          "evaluations": 850
+        },
+        {
+          "best_value": 3.034293474901839e-06,
+          "evaluations": 860
+        },
+        {
+          "best_value": 3.034293474901839e-06,
+          "evaluations": 870
+        },
+        {
+          "best_value": 3.034293474901839e-06,
+          "evaluations": 880
+        },
+        {
+          "best_value": 3.034293474901839e-06,
+          "evaluations": 890
+        },
+        {
+          "best_value": 3.034293474901839e-06,
+          "evaluations": 900
+        },
+        {
+          "best_value": 2.89275966633461e-06,
+          "evaluations": 910
+        },
+        {
+          "best_value": 1.4382693385316119e-06,
+          "evaluations": 920
+        },
+        {
+          "best_value": 1.4382693385316119e-06,
+          "evaluations": 930
+        },
+        {
+          "best_value": 5.78371083337613e-07,
+          "evaluations": 940
+        },
+        {
+          "best_value": 4.176192839669666e-07,
+          "evaluations": 950
+        },
+        {
+          "best_value": 3.448137436015375e-07,
+          "evaluations": 960
+        },
+        {
+          "best_value": 8.221515211397802e-08,
+          "evaluations": 970
+        },
+        {
+          "best_value": 8.221515211397802e-08,
+          "evaluations": 980
+        },
+        {
+          "best_value": 8.221515211397802e-08,
+          "evaluations": 990
+        },
+        {
+          "best_value": 5.470071814191851e-08,
+          "evaluations": 1000
+        },
+        {
+          "best_value": 2.0546721381768244e-08,
+          "evaluations": 1010
+        },
+        {
+          "best_value": 2.0546721381768244e-08,
+          "evaluations": 1020
+        },
+        {
+          "best_value": 2.0546721381768244e-08,
+          "evaluations": 1030
+        },
+        {
+          "best_value": 2.0546721381768244e-08,
+          "evaluations": 1040
+        },
+        {
+          "best_value": 1.7745565594115324e-08,
+          "evaluations": 1050
+        },
+        {
+          "best_value": 7.2376724841647396e-09,
+          "evaluations": 1060
+        }
+      ],
+      "validation_reevaluations": 1
+    },
+    {
+      "best_point": [
+        -1.2927163702119196e-05,
+        6.746054598739859e-06,
+        4.566575061325598e-06,
+        6.012976292201053e-06,
+        5.841451950644665e-07
+      ],
+      "best_value": 4.575275836341458e-09,
+      "evaluations": 1120,
+      "met_target": true,
+      "objective": "rotated_quadratic",
+      "rechecked_value": 4.575275836341458e-09,
+      "seed": 42,
+      "stop_reasons": {
+        "ftarget": "1e-08"
+      },
+      "trace": [
+        {
+          "best_value": 19363.357814226303,
+          "evaluations": 10
+        },
+        {
+          "best_value": 4834.712659262816,
+          "evaluations": 20
+        },
+        {
+          "best_value": 180.22565223683793,
+          "evaluations": 30
+        },
+        {
+          "best_value": 165.6214191978696,
+          "evaluations": 40
+        },
+        {
+          "best_value": 165.6214191978696,
+          "evaluations": 50
+        },
+        {
+          "best_value": 165.6214191978696,
+          "evaluations": 60
+        },
+        {
+          "best_value": 110.3857975607126,
+          "evaluations": 70
+        },
+        {
+          "best_value": 73.00804998303286,
+          "evaluations": 80
+        },
+        {
+          "best_value": 73.00804998303286,
+          "evaluations": 90
+        },
+        {
+          "best_value": 73.00804998303286,
+          "evaluations": 100
+        },
+        {
+          "best_value": 17.25405605577374,
+          "evaluations": 110
+        },
+        {
+          "best_value": 17.25405605577374,
+          "evaluations": 120
+        },
+        {
+          "best_value": 17.25405605577374,
+          "evaluations": 130
+        },
+        {
+          "best_value": 17.25405605577374,
+          "evaluations": 140
+        },
+        {
+          "best_value": 7.257015844822268,
+          "evaluations": 150
+        },
+        {
+          "best_value": 7.257015844822268,
+          "evaluations": 160
+        },
+        {
+          "best_value": 7.257015844822268,
+          "evaluations": 170
+        },
+        {
+          "best_value": 7.257015844822268,
+          "evaluations": 180
+        },
+        {
+          "best_value": 7.257015844822268,
+          "evaluations": 190
+        },
+        {
+          "best_value": 7.257015844822268,
+          "evaluations": 200
+        },
+        {
+          "best_value": 6.903455253199575,
+          "evaluations": 210
+        },
+        {
+          "best_value": 6.903455253199575,
+          "evaluations": 220
+        },
+        {
+          "best_value": 5.405719826044054,
+          "evaluations": 230
+        },
+        {
+          "best_value": 5.405719826044054,
+          "evaluations": 240
+        },
+        {
+          "best_value": 5.405719826044054,
+          "evaluations": 250
+        },
+        {
+          "best_value": 3.9881076353524803,
+          "evaluations": 260
+        },
+        {
+          "best_value": 3.66352031425629,
+          "evaluations": 270
+        },
+        {
+          "best_value": 2.035409681598217,
+          "evaluations": 280
+        },
+        {
+          "best_value": 1.7884767276357119,
+          "evaluations": 290
+        },
+        {
+          "best_value": 1.2629432980161293,
+          "evaluations": 300
+        },
+        {
+          "best_value": 1.0842310769998953,
+          "evaluations": 310
+        },
+        {
+          "best_value": 0.46483568438177,
+          "evaluations": 320
+        },
+        {
+          "best_value": 0.46483568438177,
+          "evaluations": 330
+        },
+        {
+          "best_value": 0.46483568438177,
+          "evaluations": 340
+        },
+        {
+          "best_value": 0.46483568438177,
+          "evaluations": 350
+        },
+        {
+          "best_value": 0.46483568438177,
+          "evaluations": 360
+        },
+        {
+          "best_value": 0.46483568438177,
+          "evaluations": 370
+        },
+        {
+          "best_value": 0.46483568438177,
+          "evaluations": 380
+        },
+        {
+          "best_value": 0.46483568438177,
+          "evaluations": 390
+        },
+        {
+          "best_value": 0.3172541672598629,
+          "evaluations": 400
+        },
+        {
+          "best_value": 0.2529464276206421,
+          "evaluations": 410
+        },
+        {
+          "best_value": 0.2529464276206421,
+          "evaluations": 420
+        },
+        {
+          "best_value": 0.2529464276206421,
+          "evaluations": 430
+        },
+        {
+          "best_value": 0.1724354434331296,
+          "evaluations": 440
+        },
+        {
+          "best_value": 0.14785597917664636,
+          "evaluations": 450
+        },
+        {
+          "best_value": 0.11765021016086273,
+          "evaluations": 460
+        },
+        {
+          "best_value": 0.07089265875007597,
+          "evaluations": 470
+        },
+        {
+          "best_value": 0.008108875434551665,
+          "evaluations": 480
+        },
+        {
+          "best_value": 0.008108875434551665,
+          "evaluations": 490
+        },
+        {
+          "best_value": 0.008108875434551665,
+          "evaluations": 500
+        },
+        {
+          "best_value": 0.008108875434551665,
+          "evaluations": 510
+        },
+        {
+          "best_value": 0.008108875434551665,
+          "evaluations": 520
+        },
+        {
+          "best_value": 0.008108875434551665,
+          "evaluations": 530
+        },
+        {
+          "best_value": 0.005631274975355752,
+          "evaluations": 540
+        },
+        {
+          "best_value": 0.005631274975355752,
+          "evaluations": 550
+        },
+        {
+          "best_value": 0.005631274975355752,
+          "evaluations": 560
+        },
+        {
+          "best_value": 0.005631274975355752,
+          "evaluations": 570
+        },
+        {
+          "best_value": 0.005631274975355752,
+          "evaluations": 580
+        },
+        {
+          "best_value": 0.0038091387661400218,
+          "evaluations": 590
+        },
+        {
+          "best_value": 0.0024393139745871504,
+          "evaluations": 600
+        },
+        {
+          "best_value": 0.0003732189877713879,
+          "evaluations": 610
+        },
+        {
+          "best_value": 0.0003732189877713879,
+          "evaluations": 620
+        },
+        {
+          "best_value": 0.0003732189877713879,
+          "evaluations": 630
+        },
+        {
+          "best_value": 0.0003732189877713879,
+          "evaluations": 640
+        },
+        {
+          "best_value": 0.0003732189877713879,
+          "evaluations": 650
+        },
+        {
+          "best_value": 0.0003732189877713879,
+          "evaluations": 660
+        },
+        {
+          "best_value": 0.0003732189877713879,
+          "evaluations": 670
+        },
+        {
+          "best_value": 0.0003732189877713879,
+          "evaluations": 680
+        },
+        {
+          "best_value": 0.00031799591927790207,
+          "evaluations": 690
+        },
+        {
+          "best_value": 0.00021899386519736987,
+          "evaluations": 700
+        },
+        {
+          "best_value": 0.00021899386519736987,
+          "evaluations": 710
+        },
+        {
+          "best_value": 0.00021899386519736987,
+          "evaluations": 720
+        },
+        {
+          "best_value": 3.2353035763374446e-05,
+          "evaluations": 730
+        },
+        {
+          "best_value": 3.2353035763374446e-05,
+          "evaluations": 740
+        },
+        {
+          "best_value": 3.2353035763374446e-05,
+          "evaluations": 750
+        },
+        {
+          "best_value": 1.539303435298264e-05,
+          "evaluations": 760
+        },
+        {
+          "best_value": 1.539303435298264e-05,
+          "evaluations": 770
+        },
+        {
+          "best_value": 1.539303435298264e-05,
+          "evaluations": 780
+        },
+        {
+          "best_value": 1.539303435298264e-05,
+          "evaluations": 790
+        },
+        {
+          "best_value": 1.539303435298264e-05,
+          "evaluations": 800
+        },
+        {
+          "best_value": 1.539303435298264e-05,
+          "evaluations": 810
+        },
+        {
+          "best_value": 1.539303435298264e-05,
+          "evaluations": 820
+        },
+        {
+          "best_value": 1.19883288132693e-05,
+          "evaluations": 830
+        },
+        {
+          "best_value": 5.95003375048342e-06,
+          "evaluations": 840
+        },
+        {
+          "best_value": 5.95003375048342e-06,
+          "evaluations": 850
+        },
+        {
+          "best_value": 4.2556405528253736e-06,
+          "evaluations": 860
+        },
+        {
+          "best_value": 4.2556405528253736e-06,
+          "evaluations": 870
+        },
+        {
+          "best_value": 4.2556405528253736e-06,
+          "evaluations": 880
+        },
+        {
+          "best_value": 1.2807267542865277e-06,
+          "evaluations": 890
+        },
+        {
+          "best_value": 1.2807267542865277e-06,
+          "evaluations": 900
+        },
+        {
+          "best_value": 1.2807267542865277e-06,
+          "evaluations": 910
+        },
+        {
+          "best_value": 1.2807267542865277e-06,
+          "evaluations": 920
+        },
+        {
+          "best_value": 1.2807267542865277e-06,
+          "evaluations": 930
+        },
+        {
+          "best_value": 1.2807267542865277e-06,
+          "evaluations": 940
+        },
+        {
+          "best_value": 2.659802988108074e-07,
+          "evaluations": 950
+        },
+        {
+          "best_value": 2.659802988108074e-07,
+          "evaluations": 960
+        },
+        {
+          "best_value": 2.659802988108074e-07,
+          "evaluations": 970
+        },
+        {
+          "best_value": 2.659802988108074e-07,
+          "evaluations": 980
+        },
+        {
+          "best_value": 2.659802988108074e-07,
+          "evaluations": 990
+        },
+        {
+          "best_value": 2.659802988108074e-07,
+          "evaluations": 1000
+        },
+        {
+          "best_value": 1.6193212935951272e-07,
+          "evaluations": 1010
+        },
+        {
+          "best_value": 1.6193212935951272e-07,
+          "evaluations": 1020
+        },
+        {
+          "best_value": 5.324277054708078e-08,
+          "evaluations": 1030
+        },
+        {
+          "best_value": 4.125483015660579e-08,
+          "evaluations": 1040
+        },
+        {
+          "best_value": 4.125483015660579e-08,
+          "evaluations": 1050
+        },
+        {
+          "best_value": 2.9594325296046397e-08,
+          "evaluations": 1060
+        },
+        {
+          "best_value": 2.1580463880671392e-08,
+          "evaluations": 1070
+        },
+        {
+          "best_value": 1.1738483189192567e-08,
+          "evaluations": 1080
+        },
+        {
+          "best_value": 1.1100299980630254e-08,
+          "evaluations": 1090
+        },
+        {
+          "best_value": 1.1100299980630254e-08,
+          "evaluations": 1100
+        },
+        {
+          "best_value": 1.1100299980630254e-08,
+          "evaluations": 1110
+        },
+        {
+          "best_value": 4.575275836341458e-09,
+          "evaluations": 1120
+        }
+      ],
+      "validation_reevaluations": 1
+    },
+    {
+      "best_point": [
+        1.5834223524557185e-05,
+        -1.2341885684104422e-05,
+        7.380874948719488e-07,
+        -4.51315409227644e-06,
+        2.0643166149893355e-07
+      ],
+      "best_value": 2.3322250835064496e-09,
+      "evaluations": 1000,
+      "met_target": true,
+      "objective": "rotated_quadratic",
+      "rechecked_value": 2.3322250835064496e-09,
+      "seed": 2026,
+      "stop_reasons": {
+        "ftarget": "1e-08"
+      },
+      "trace": [
+        {
+          "best_value": 34601.76797725831,
+          "evaluations": 10
+        },
+        {
+          "best_value": 18354.621104592312,
+          "evaluations": 20
+        },
+        {
+          "best_value": 5966.615545343335,
+          "evaluations": 30
+        },
+        {
+          "best_value": 2229.923281405826,
+          "evaluations": 40
+        },
+        {
+          "best_value": 1143.0661917159266,
+          "evaluations": 50
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 60
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 70
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 80
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 90
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 100
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 110
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 120
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 130
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 140
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 150
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 160
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 170
+        },
+        {
+          "best_value": 177.44489256423714,
+          "evaluations": 180
+        },
+        {
+          "best_value": 97.57032328428299,
+          "evaluations": 190
+        },
+        {
+          "best_value": 97.57032328428299,
+          "evaluations": 200
+        },
+        {
+          "best_value": 55.329060480655166,
+          "evaluations": 210
+        },
+        {
+          "best_value": 55.329060480655166,
+          "evaluations": 220
+        },
+        {
+          "best_value": 37.0133248783463,
+          "evaluations": 230
+        },
+        {
+          "best_value": 15.440623863221685,
+          "evaluations": 240
+        },
+        {
+          "best_value": 15.440623863221685,
+          "evaluations": 250
+        },
+        {
+          "best_value": 15.440623863221685,
+          "evaluations": 260
+        },
+        {
+          "best_value": 15.440623863221685,
+          "evaluations": 270
+        },
+        {
+          "best_value": 11.62751879545919,
+          "evaluations": 280
+        },
+        {
+          "best_value": 11.62751879545919,
+          "evaluations": 290
+        },
+        {
+          "best_value": 5.56375419611043,
+          "evaluations": 300
+        },
+        {
+          "best_value": 5.56375419611043,
+          "evaluations": 310
+        },
+        {
+          "best_value": 5.56375419611043,
+          "evaluations": 320
+        },
+        {
+          "best_value": 5.56375419611043,
+          "evaluations": 330
+        },
+        {
+          "best_value": 2.1447170383295684,
+          "evaluations": 340
+        },
+        {
+          "best_value": 1.487796087707939,
+          "evaluations": 350
+        },
+        {
+          "best_value": 1.487796087707939,
+          "evaluations": 360
+        },
+        {
+          "best_value": 1.487796087707939,
+          "evaluations": 370
+        },
+        {
+          "best_value": 0.5265347140213212,
+          "evaluations": 380
+        },
+        {
+          "best_value": 0.5265347140213212,
+          "evaluations": 390
+        },
+        {
+          "best_value": 0.3675135386712755,
+          "evaluations": 400
+        },
+        {
+          "best_value": 0.30183069778430743,
+          "evaluations": 410
+        },
+        {
+          "best_value": 0.30183069778430743,
+          "evaluations": 420
+        },
+        {
+          "best_value": 0.30183069778430743,
+          "evaluations": 430
+        },
+        {
+          "best_value": 0.1372828023650808,
+          "evaluations": 440
+        },
+        {
+          "best_value": 0.06290077529750258,
+          "evaluations": 450
+        },
+        {
+          "best_value": 0.06290077529750258,
+          "evaluations": 460
+        },
+        {
+          "best_value": 0.06290077529750258,
+          "evaluations": 470
+        },
+        {
+          "best_value": 0.059107975693437904,
+          "evaluations": 480
+        },
+        {
+          "best_value": 0.03534775038585378,
+          "evaluations": 490
+        },
+        {
+          "best_value": 0.03430812808945272,
+          "evaluations": 500
+        },
+        {
+          "best_value": 0.03430812808945272,
+          "evaluations": 510
+        },
+        {
+          "best_value": 0.008421574187665724,
+          "evaluations": 520
+        },
+        {
+          "best_value": 0.008421574187665724,
+          "evaluations": 530
+        },
+        {
+          "best_value": 0.00724825846278888,
+          "evaluations": 540
+        },
+        {
+          "best_value": 0.0010391290104950165,
+          "evaluations": 550
+        },
+        {
+          "best_value": 0.0010391290104950165,
+          "evaluations": 560
+        },
+        {
+          "best_value": 0.0010391290104950165,
+          "evaluations": 570
+        },
+        {
+          "best_value": 0.0010391290104950165,
+          "evaluations": 580
+        },
+        {
+          "best_value": 0.00042913239037976723,
+          "evaluations": 590
+        },
+        {
+          "best_value": 0.00042913239037976723,
+          "evaluations": 600
+        },
+        {
+          "best_value": 0.00027026849346767985,
+          "evaluations": 610
+        },
+        {
+          "best_value": 5.8402162870714786e-05,
+          "evaluations": 620
+        },
+        {
+          "best_value": 4.6011090443750176e-05,
+          "evaluations": 630
+        },
+        {
+          "best_value": 4.6011090443750176e-05,
+          "evaluations": 640
+        },
+        {
+          "best_value": 4.6011090443750176e-05,
+          "evaluations": 650
+        },
+        {
+          "best_value": 4.6011090443750176e-05,
+          "evaluations": 660
+        },
+        {
+          "best_value": 4.6011090443750176e-05,
+          "evaluations": 670
+        },
+        {
+          "best_value": 4.4394485981512664e-05,
+          "evaluations": 680
+        },
+        {
+          "best_value": 1.6522316143885653e-05,
+          "evaluations": 690
+        },
+        {
+          "best_value": 1.6522316143885653e-05,
+          "evaluations": 700
+        },
+        {
+          "best_value": 1.6522316143885653e-05,
+          "evaluations": 710
+        },
+        {
+          "best_value": 7.342662711124747e-06,
+          "evaluations": 720
+        },
+        {
+          "best_value": 7.342662711124747e-06,
+          "evaluations": 730
+        },
+        {
+          "best_value": 7.342662711124747e-06,
+          "evaluations": 740
+        },
+        {
+          "best_value": 2.704924836607742e-06,
+          "evaluations": 750
+        },
+        {
+          "best_value": 2.704924836607742e-06,
+          "evaluations": 760
+        },
+        {
+          "best_value": 2.704924836607742e-06,
+          "evaluations": 770
+        },
+        {
+          "best_value": 2.704924836607742e-06,
+          "evaluations": 780
+        },
+        {
+          "best_value": 2.704924836607742e-06,
+          "evaluations": 790
+        },
+        {
+          "best_value": 1.9204855645957642e-06,
+          "evaluations": 800
+        },
+        {
+          "best_value": 1.9204855645957642e-06,
+          "evaluations": 810
+        },
+        {
+          "best_value": 1.0765389798624856e-06,
+          "evaluations": 820
+        },
+        {
+          "best_value": 4.1859036658568225e-07,
+          "evaluations": 830
+        },
+        {
+          "best_value": 4.1859036658568225e-07,
+          "evaluations": 840
+        },
+        {
+          "best_value": 4.18533030328685e-07,
+          "evaluations": 850
+        },
+        {
+          "best_value": 2.626610019817987e-07,
+          "evaluations": 860
+        },
+        {
+          "best_value": 2.626610019817987e-07,
+          "evaluations": 870
+        },
+        {
+          "best_value": 1.8532543332028368e-07,
+          "evaluations": 880
+        },
+        {
+          "best_value": 1.555703973616515e-07,
+          "evaluations": 890
+        },
+        {
+          "best_value": 7.84634748338719e-08,
+          "evaluations": 900
+        },
+        {
+          "best_value": 7.84634748338719e-08,
+          "evaluations": 910
+        },
+        {
+          "best_value": 7.333421006875672e-08,
+          "evaluations": 920
+        },
+        {
+          "best_value": 2.4407010507511227e-08,
+          "evaluations": 930
+        },
+        {
+          "best_value": 2.4407010507511227e-08,
+          "evaluations": 940
+        },
+        {
+          "best_value": 2.4407010507511227e-08,
+          "evaluations": 950
+        },
+        {
+          "best_value": 1.452003776244833e-08,
+          "evaluations": 960
+        },
+        {
+          "best_value": 1.452003776244833e-08,
+          "evaluations": 970
+        },
+        {
+          "best_value": 1.452003776244833e-08,
+          "evaluations": 980
+        },
+        {
+          "best_value": 1.452003776244833e-08,
+          "evaluations": 990
+        },
+        {
+          "best_value": 2.3322250835064496e-09,
+          "evaluations": 1000
+        }
+      ],
+      "validation_reevaluations": 1
+    }
+  ],
+  "versions": {
+    "cma": "4.4.0",
+    "numpy": "2.2.6"
+  }
+}
