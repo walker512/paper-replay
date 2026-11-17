@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "title": "Central difference convergence at x=0.7",
+  "source": "Original computational claim and code by walker512, MIT; not an external paper reproduction.",
+  "inputs": {
+    "experiment.py": "dbd197028636ec55a14d538bb9be98004b6dc9cedd4b2f10b7f790eb1689b79d"
+  },
+  "command": [
+    "{python}",
+    "experiment.py",
+    "{output}"
+  ],
+  "metrics": "{output}",
+  "timeout_seconds": 10,
+  "claims": [
+    {
+      "id": "convergence-order",
+      "statement": "Halving h from 0.02 to 0.01 yields approximately second-order error reduction for the central derivative of sin at 0.7.",
+      "metric": "estimated_order",
+      "expected": 2.0,
+      "absolute_tolerance": 0.0001
+    },
+    {
+      "id": "error-ratio",
+      "statement": "The coarse-to-fine absolute error ratio is approximately four.",
+      "metric": "error_ratio",
+      "expected": 4.0,
+      "absolute_tolerance": 0.0002
+    }
+  ]
+}
