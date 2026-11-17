@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "kind": "metric-contract",
+  "title": "Imported metrics from freshly executed CMA-ES method trial",
+  "source": "Original six synthetic cases run locally with cma4.4.0/numpy2.2.6; this receipt IMPORTS the saved results and does not rerun the optimizer. Not a paper table replication.",
+  "claims": [
+    {
+      "id": "all-preselected-targets",
+      "statement": "The imported metrics record success_fraction=1 for the six preselected cases. The experiment performs optimization separately; the sample checker validates saved numerical results and budget accounting before import, but does not authenticate execution. Paper Replay checks the imported numeric field only.",
+      "metric": "success_fraction",
+      "expected": 1,
+      "absolute_tolerance": 0
+    },
+    {
+      "id": "objective-target",
+      "statement": "The imported worst_best_value is within 1e-8 of zero. Independent objective recomputation was performed by the separate sample checker before this snapshot was imported.",
+      "metric": "worst_best_value",
+      "expected": 0,
+      "absolute_tolerance": 1e-08
+    },
+    {
+      "id": "complete-preselected-runs",
+      "statement": "The imported run_count equals six. Exact objective/seed identities were checked by the separate sample checker before import; Paper Replay verifies this declared numeric field only.",
+      "metric": "run_count",
+      "expected": 6,
+      "absolute_tolerance": 0
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "recorded_before_experiment_utc": "2026-11-17T06:01:35.289195+00:00",
+  "sha256": {
+    "protocol.json": "4298ccaf64619b053c9c3f4c21f0b52ddc83ca8f3eae685ae27fb4876b9f4c98",
+    "experiment.py": "dc95ff4868e3e51113b96e92a06b4ba92bafe30ff750f2381ba86e88ccd27e01"
+  },
+  "wheels": {
+    "numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "fd83c01228a688733f1ded5201c678f0c53ecc1006ffbc404db9f7a899ac6249",
+    "cma-4.4.0-py3-none-any.whl": "46da7f95056b02496f4117269026dce3953ef0ae89717267540566effb85b052"
+  }
+}

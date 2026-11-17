@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "author": "walker512",
+  "scope": "Fresh CMA-ES method verification on original synthetic objectives; NOT a reproduction of a paper table or its original experimental protocol",
+  "paper": "Nikolaus Hansen, The CMA Evolution Strategy: A Tutorial, arXiv:1604.00772v2",
+  "implementation": {"cma": "4.4.0", "numpy": "2.2.6"},
+  "dimension": 5,
+  "objectives": ["sphere", "rotated_quadratic"],
+  "seeds": [7, 42, 2026],
+  "initial_point": [3, 3, 3, 3, 3],
+  "sigma0": 1.0,
+  "population_size": 10,
+  "max_evaluations_per_run": 4000,
+  "target_value": 1e-8,
+  "acceptance": "All six preselected runs must freshly evaluate a best point with objective <= 1e-8 in at most 4000 optimization evaluations; no seed replacement or post-run threshold adjustment",
+  "rotation": "Identity then left-multiply adjacent-coordinate Givens rotations (0,1),(1,2),(2,3),(3,4), each cos=3/5 and sin=4/5",
+  "quadratic_weights": [1, 5, 25, 125, 1000],
+  "analytic_minimum": {"point": [0,0,0,0,0], "value": 0},
+  "notes": "A validation reevaluation of the returned best point is reported separately, outside the optimization evaluation budget. Repeated runs test local determinism, not independent statistical samples. No ranking against other optimizers."
+}
