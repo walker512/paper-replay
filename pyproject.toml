@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "paper-replay-lab"
+version = "0.1.2"
+description = "Explicit computational claims, pinned inputs and checkable experiment receipts"
+requires-python = ">=3.10"
+authors = [{name = "walker512"}]
+license = "MIT"
+dependencies = []
+[project.scripts]
+paper-replay = "paper_replay.__main__:main"
+[tool.setuptools.packages.find]
+include = ["paper_replay*"]

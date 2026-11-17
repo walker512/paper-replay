@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.venv/
+run-*/
+
+# Deliberately versioned synthetic regression records
+!examples/cma_method/run-first/
+!examples/cma_method/run-repeat/

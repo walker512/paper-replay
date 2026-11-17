@@ -1,0 +1,2 @@
+# SHA-256 pins cover exact input bytes across Windows/macOS/Linux checkouts.
+* -text
