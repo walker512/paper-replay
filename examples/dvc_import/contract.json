@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "kind": "metric-contract",
+  "title": "Read-only import of existing DVC finite-difference metrics",
+  "source": "DVC 3.67.1 existing metrics, imported only. No execution or freshness claim.",
+  "claims": [
+    {
+      "id": "convergence-order",
+      "statement": "Halving h from 0.02 to 0.01 yields approximately second-order error reduction for the central derivative of sin at 0.7.",
+      "metric": "estimated_order",
+      "expected": 2.0,
+      "absolute_tolerance": 0.0001
+    },
+    {
+      "id": "error-ratio",
+      "statement": "The coarse-to-fine absolute error ratio is approximately four.",
+      "metric": "error_ratio",
+      "expected": 4.0,
+      "absolute_tolerance": 0.0002
+    }
+  ]
+}
