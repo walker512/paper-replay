@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "title": "SpecEval paper Table 1: reaggregation of released measurements only",
+  "source": "Shen et al., Speculative Evaluation of Stochastic LLMs, arXiv:2609.28560v1 Table 1; upstream commit 4233473c92d0541e3f1a03d9b853f7bd1501152c",
+  "inputs": {
+    "experiment.py": "03de6136a7614062167648a9b78d20833af42533d29073ba90f7df68a32ff205",
+    "upstream/LICENSE": "cc44f1f8bd96b70d6e4014ceef7f3c2cf5bed193c95bb43ecd0bb99415178bbb",
+    "upstream/results/replay/en_pair_results.csv": "183be3d327de1353d0fd385aeef998d5736e0fb29641d3c17609099e8baaac4e",
+    "upstream/results/replay/hbn_pair_results.csv": "7c8f7a89160d95ff685eaf535cc51b351e68b09c6c11e1c9c240e8ae8cd99925",
+    "upstream/results/replay/ibn_tuned_pair_results.csv": "cde2569bb4ba14fba03107eda1a74433bd1fc766b293839dca21e79c390476f9",
+    "upstream/results/replay/oracle_pair_results.csv": "0d3603f4a07b6f9e95a30f0e493c95fc3999a6530fccaf42e083f6e891ed8a71",
+    "upstream/tools/reproduce_table1.py": "870feb3d502b9a6d1a6baafdcdb71efc5589563f126480f2f75f67450fc20a83"
+  },
+  "command": [
+    "{python}",
+    "experiment.py",
+    "{output}"
+  ],
+  "metrics": "{output}",
+  "timeout_seconds": 30,
+  "claims": [
+    {
+      "id": "table1-b8-oracle_pct",
+      "statement": "Table 1 budget 8, oracle_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b8.oracle_pct",
+      "expected": 40.7,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b8-tuned_en_pct",
+      "statement": "Table 1 budget 8, tuned_en_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b8.tuned_en_pct",
+      "expected": 94.3,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b8-tuned_ibn_pct",
+      "statement": "Table 1 budget 8, tuned_ibn_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b8.tuned_ibn_pct",
+      "expected": 89.6,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b8-hbn_pct",
+      "statement": "Table 1 budget 8, hbn_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b8.hbn_pct",
+      "expected": 87.2,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b16-oracle_pct",
+      "statement": "Table 1 budget 16, oracle_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b16.oracle_pct",
+      "expected": 39.9,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b16-tuned_en_pct",
+      "statement": "Table 1 budget 16, tuned_en_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b16.tuned_en_pct",
+      "expected": 92.6,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b16-tuned_ibn_pct",
+      "statement": "Table 1 budget 16, tuned_ibn_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b16.tuned_ibn_pct",
+      "expected": 81.9,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b16-hbn_pct",
+      "statement": "Table 1 budget 16, hbn_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b16.hbn_pct",
+      "expected": 80.1,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b32-oracle_pct",
+      "statement": "Table 1 budget 32, oracle_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b32.oracle_pct",
+      "expected": 39.5,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b32-tuned_en_pct",
+      "statement": "Table 1 budget 32, tuned_en_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b32.tuned_en_pct",
+      "expected": 91.9,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b32-tuned_ibn_pct",
+      "statement": "Table 1 budget 32, tuned_ibn_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b32.tuned_ibn_pct",
+      "expected": 74.2,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b32-hbn_pct",
+      "statement": "Table 1 budget 32, hbn_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b32.hbn_pct",
+      "expected": 73.0,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b64-oracle_pct",
+      "statement": "Table 1 budget 64, oracle_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b64.oracle_pct",
+      "expected": 39.3,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b64-tuned_en_pct",
+      "statement": "Table 1 budget 64, tuned_en_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b64.tuned_en_pct",
+      "expected": 91.5,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b64-tuned_ibn_pct",
+      "statement": "Table 1 budget 64, tuned_ibn_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b64.tuned_ibn_pct",
+      "expected": 67.0,
+      "absolute_tolerance": 0.05
+    },
+    {
+      "id": "table1-b64-hbn_pct",
+      "statement": "Table 1 budget 64, hbn_pct: mean published per-profile variance ratio, percent of Uniform. Reaggregation only.",
+      "metric": "b64.hbn_pct",
+      "expected": 66.4,
+      "absolute_tolerance": 0.05
+    }
+  ]
+}
