@@ -32,3 +32,28 @@ Two independent reviews found and reproduced typed-comparison, FIFO-blocking and
 - serializes and validates all imported outputs before creating the destination. Data-format errors leave no half-bundle. Filesystem failures such as full disk can still leave partial output; the receipt is written last and must verify before completion is claimed.
 
 61 local tests pass, including subprocess-timeout-guarded FIFO regressions on POSIX. FIFO tests are intentionally skipped on systems without `os.mkfifo`; a skipped test is not evidence about Windows named pipes. This revision requires independent re-review and new CI before acceptance.
+
+## Private creation of new imports
+
+New import output directories and any missing parent directories are created
+with POSIX mode 0700, and each evidence file is created exclusively with mode
+0600 before any source bytes are written. The process umask is not changed.
+Existing outputs (including dangling symlinks) are rejected; existing parents
+are never chmodded. POSIX writes are anchored to the opened output directory
+and use exclusive, no-follow creation. Concurrent imports to one destination
+cannot merge bundles: a loser fails without modifying the winner's files.
+
+Choose a trusted parent directory. This is not protection against another
+process running as the same user, hostile filesystem implementations, or an
+administrator. On Windows, these mode arguments do **not** establish a private
+ACL: files inherit the destination's permissions. Use an already private
+Windows folder; no ACL or system security setting is changed. Windows ACL
+isolation and adversarial directory replacement are not claimed or tested.
+
+The full original metrics snapshot is still retained without redaction.
+Failures may leave a private partial directory; no rollback or automatic
+recursive deletion is attempted. The receipt is written last, but interrupted
+receipt writes can themselves be partial, so completion must be checked with
+`verify`, not inferred merely from a filename's presence. Existing historical
+bundles remain readable and are not modified by this change. This change is
+specific to `import-metrics`, not a privacy guarantee for the separate runner.

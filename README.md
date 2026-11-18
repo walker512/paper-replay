@@ -119,3 +119,48 @@ existing 74 tests remain unchanged. The new correction has not been run on
 Windows/macOS, and no new hosted CI or UI result is claimed. No workflow file is
 changed. Original API/manifest/receipt versions and imported-result semantics
 remain unchanged.
+
+## Compare two existing evidence runs offline
+
+```sh
+python -m paper_replay compare-runs before-bundle after-bundle --out new-comparison
+python -m paper_replay compare-verify new-comparison
+```
+
+These commands **never execute experiment code**. Each side is captured into a
+bounded snapshot and verified with the existing receipt verifier before comparison.
+The deterministic `comparison.json` shows claim additions/removals, changed statements,
+metrics, expectations and absolute tolerances, before/after claim results, numeric
+or other metric value changes, declared input/script hashes, commands, import
+selection and execution environment declarations. Missing metrics have
+`present: false`, not a fabricated zero. Failed executions' retained metrics are
+not evaluated as successful observations. No subtraction or direction is labeled
+“improvement”: higher/lower can mean different things for different metrics.
+
+A newly supported claim is not automatically a better result. Widened tolerances,
+removed claims, changed definitions, inputs or commands produce explicit warnings.
+Imported metrics are distinctly labeled and are not a rerun. Even matching script
+hash declarations do not verify the original script or data bytes: legacy bundles
+retain declarations, not all external inputs. Source age, authenticity, scientific
+meaning, chronology, environment equivalence and causal attribution remain unknown.
+`improvement_established` is always false. Exit 0 means consistency only.
+
+The output retains the complete selected evidence files, potentially including
+sensitive metrics, stdout and stderr. Nothing is redacted. Original `report.md`
+is deliberately excluded because the existing verifier does not bind that rendered
+file. Extra files in original source directories are also excluded. The new bundle
+contains `before/`, `after/` and a final `comparison.json`; comparison verification
+rejects additional snapshot members and recomputes the JSON from both snapshots.
+Hashes are unsigned byte bindings, not an authentication mechanism.
+
+Each evidence file is capped at 2,000,000 bytes and each snapshot at 16 MiB;
+comparison JSON uses the existing 2 MB bound. Capture validates the bytes copied,
+not an atomic snapshot of another process's changing directory. Use trusted parent
+folders, stop concurrent producers, and do not rely on protection against malicious
+same-account directory replacement. Symlink input files/directories are refused.
+New output creation is exclusive, with POSIX modes 0700/0600 (a stricter umask
+can restrict further). No Windows ACL guarantee is made. An I/O failure can leave
+private partial output; the completion file is written last, verification rejects
+incomplete output, and a retry needs a fresh path. Publication is not atomic or
+power-loss durable. The combined candidate also applies the independently reviewed import-metrics
+private-creation patch; legacy `run` permissions are unchanged.

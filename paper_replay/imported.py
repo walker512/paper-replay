@@ -1,6 +1,7 @@
 """Read-only metric import, without running any project code or DVC commands."""
 from pathlib import Path
 import hashlib
+import os
 import re
 from .core import (Invalid, VERSION, MAX_BYTES, read_json, parse_json_bytes,
                    write_json, digest, confined, evaluate, validate_claims, render, read_regular, encode_json, same_json)
@@ -44,6 +45,53 @@ def aggregate_status(rows):
             else 'not_supported' if 'not_supported' in statuses else 'supported')
 
 
+def _private_parents(path):
+    """Create missing parents privately; never chmod pre-existing directories."""
+    if path.exists():
+        if not path.is_dir():
+            raise Invalid('output parent must be a directory')
+        return
+    if path.is_symlink():
+        raise Invalid('dangling output parent link is not allowed')
+    _private_parents(path.parent)
+    path.mkdir(mode=0o700)  # exclusive: a concurrent creator causes a safe failure
+
+
+def _write_private_bundle(out, files):
+    """Exclusive creation, restrictive POSIX modes, no process-wide umask change.
+
+    Parents must be trusted. Windows permissions inherit the parent ACL; mode
+    bits do not promise owner-only access there. POSIX writes are directory-fd
+    anchored so replacing the output path cannot redirect subsequent writes.
+    """
+    _private_parents(out.parent)
+    out.mkdir(mode=0o700)  # fails for existing paths, including dangling links
+    created = out.lstat()
+    directory_fd = None
+    try:
+        if os.name == 'posix':
+            directory_fd = os.open(out, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+            info = os.fstat(directory_fd)
+            if (info.st_dev, info.st_ino) != (created.st_dev, created.st_ino):
+                raise Invalid('output directory changed during creation')
+        for name, data in files.items():
+            current = out.lstat()
+            if (current.st_dev, current.st_ino) != (created.st_dev, created.st_ino) or out.is_symlink():
+                raise Invalid('output directory changed during creation')
+            flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, 'O_NOFOLLOW', 0) | getattr(os, 'O_BINARY', 0)
+            if directory_fd is None:
+                if out.is_symlink() or not out.is_dir():
+                    raise Invalid('output directory changed during creation')
+                fd = os.open(out / name, flags, 0o600)
+            else:
+                fd = os.open(name, flags, 0o600, dir_fd=directory_fd)
+            with os.fdopen(fd, 'wb') as stream:
+                stream.write(data)
+    finally:
+        if directory_fd is not None:
+            os.close(directory_fd)
+
+
 def import_metrics(contract_path, metrics_path, output_dir, *, select=''):
     """Read only the named files; write a new evidence bundle. Never execute code."""
     contract = load_contract(Path(contract_path))
@@ -53,7 +101,7 @@ def import_metrics(contract_path, metrics_path, output_dir, *, select=''):
     raw = read_regular(source)
     selected = select_object(parse_json_bytes(raw), select)
     rows = evaluate(contract['claims'], selected)
-    out = Path(output_dir).resolve()
+    out = Path(os.path.abspath(output_dir))
     if out.exists():
         raise Invalid('output directory must not exist')
     # Serialize every generated JSON before creating a destination, preventing
@@ -75,10 +123,8 @@ def import_metrics(contract_path, metrics_path, output_dir, *, select=''):
     report_bytes = (report + render(receipt)).encode('utf-8')
     # Filesystem errors (disk full/permissions) can still leave partial output.
     # A receipt is the final file, so absent receipt never signifies completion.
-    out.mkdir(parents=True)
-    for name, data in {**artifacts, 'contract.json': contract_bytes, 'report.md': report_bytes}.items():
-        (out / name).write_bytes(data)
-    (out / 'receipt.json').write_bytes(receipt_bytes)
+    _write_private_bundle(out, {**artifacts, 'contract.json': contract_bytes,
+                                'report.md': report_bytes, 'receipt.json': receipt_bytes})
     return receipt
 
 
