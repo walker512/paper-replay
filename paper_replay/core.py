@@ -235,6 +235,12 @@ def check_inputs(root, manifest):
 
 
 def run(manifest_path, output_dir, *, execute=False):
+    from .execution import cancellation
+    with cancellation() as state:
+        return _run(manifest_path, output_dir, execute=execute, state=state)
+
+
+def _run(manifest_path, output_dir, *, execute=False, state):
     """Run only a user-reviewed local script. Hashes establish identity, not trust."""
     manifest_path = Path(manifest_path).resolve()
     m = load_manifest(manifest_path)
@@ -262,15 +268,19 @@ def run(manifest_path, output_dir, *, execute=False):
         # Logs stay local; no environment variables or absolute command paths in receipt.
         with (out / 'stdout.log').open('wb') as stdout, (out / 'stderr.log').open('wb') as stderr:
             try:
-                result = subprocess.run(command, cwd=root, stdout=stdout, stderr=stderr,
-                                        timeout=m.get('timeout_seconds', 30), check=False,
-                                        env={'PATH': os.defpath, 'PYTHONHASHSEED': '0',
-                                             'PYTHONIOENCODING': 'utf-8'})
-                receipt['exit_code'] = result.returncode
+                from .execution import execute as execute_process
+                returncode,reason = execute_process(command,root,stdout,stderr,
+                    m.get('timeout_seconds',30),
+                    {'PATH':os.defpath,'PYTHONHASHSEED':'0','PYTHONIOENCODING':'utf-8'},state)
+                receipt['exit_code'] = returncode
+                if reason=='timeout':raise subprocess.TimeoutExpired(command,m.get('timeout_seconds',30))
+                if reason=='output_limit':
+                    receipt['error']='experiment log limit exceeded; metrics not evaluated'
+                    raise Invalid('bounded log limit')
                 after = check_inputs(root, m)
                 if after:
                     receipt.update(status='input_mismatch', input_errors=after)
-                elif result.returncode != 0:
+                elif returncode != 0:
                     receipt['error'] = 'experiment exited nonzero; metrics not evaluated'
                 elif not metrics_path.is_file() or metrics_path.is_symlink():
                     receipt['error'] = 'experiment did not create a regular metrics file'
@@ -282,7 +292,7 @@ def run(manifest_path, output_dir, *, execute=False):
             except subprocess.TimeoutExpired:
                 receipt['error'] = 'experiment timed out; metrics not evaluated'
             except (Invalid, ValueError, OSError) as exc:
-                receipt['error'] = f'metrics or execution error: {type(exc).__name__}'
+                receipt.setdefault('error', f'metrics or execution error: {type(exc).__name__}')
         receipt['duration_seconds'] = round(time.monotonic() - started, 6)
         for name in ('metrics.json', 'stdout.log', 'stderr.log'):
             file = out / name

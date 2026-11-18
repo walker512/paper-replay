@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 from .core import Invalid, load_manifest, check_inputs, run, verify
 from .imported import import_metrics
+from .execution import Cancelled
 
 def main():
     p = argparse.ArgumentParser(description='Paper Replay Lab: explicit computational claim checks')
@@ -35,6 +36,9 @@ def main():
             code = 2 if a.require_supported and result['status'] != 'supported' else 0
         print(json.dumps(result, indent=2, allow_nan=False))
         return code
+    except Cancelled as exc:
+        print('Experiment cancelled; partial artifacts may remain. No success is returned.',file=sys.stderr)
+        return 128+exc.signum
     except (Invalid, ValueError, OSError, KeyError, TypeError) as exc:
         print(f'Error: {exc}', file=sys.stderr)
         return 1
