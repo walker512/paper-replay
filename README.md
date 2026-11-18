@@ -162,8 +162,10 @@ New output creation is exclusive, with POSIX modes 0700/0600 (a stricter umask
 can restrict further). No Windows ACL guarantee is made. An I/O failure can leave
 private partial output; the completion file is written last, verification rejects
 incomplete output, and a retry needs a fresh path. Publication is not atomic or
-power-loss durable. The combined candidate also applies the independently reviewed import-metrics
-private-creation patch; legacy `run` permissions are unchanged.
+power-loss durable. That earlier combined release applied the independently reviewed
+import-metrics private-creation patch but did not change legacy `run` permissions.
+The later run-privacy correction below changes newly created run outputs only;
+existing bundles are not modified, and Windows ACL privacy remains unverified.
 
 ### New `run` output privacy
 
