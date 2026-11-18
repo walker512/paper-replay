@@ -164,3 +164,12 @@ private partial output; the completion file is written last, verification reject
 incomplete output, and a retry needs a fresh path. Publication is not atomic or
 power-loss durable. The combined candidate also applies the independently reviewed import-metrics
 private-creation patch; legacy `run` permissions are unchanged.
+
+### New `run` output privacy
+
+New local execution bundles use exclusive private POSIX creation and a child-only
+umask 077; output leaf links are rejected rather than resolved. Old bundles are
+not modified. Windows ACLs are not certified, scripts remain trusted, and failed
+runs may leave partial output requiring a fresh path. See
+[run privacy and recovery boundaries](docs/RUN_PRIVACY.md). The updated Linux
+suite passes 117 tests; no new Windows or remote CI run is claimed.

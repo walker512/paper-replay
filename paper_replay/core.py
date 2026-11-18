@@ -245,62 +245,68 @@ def _run(manifest_path, output_dir, *, execute=False, state):
     manifest_path = Path(manifest_path).resolve()
     m = load_manifest(manifest_path)
     root = manifest_path.parent
-    out = Path(output_dir).resolve()
-    if out.exists():
+    out = Path(os.path.abspath(output_dir))
+    if os.path.lexists(out):
         raise Invalid('output directory must not exist (prevents stale metrics/replacing evidence)')
     if not execute:
         raise Invalid('execution requires --allow-execute after reviewing the pinned script')
-    out.mkdir(parents=True)
-    # Keep a source manifest so receipts can be checked without external state.
-    write_json(out / 'manifest.json', m)
-    receipt = {'schema_version': 1, 'tool_version': VERSION, 'title': m['title'],
-               'source': m['source'], 'manifest_sha256': digest(out / 'manifest.json'),
-               'environment': {'python': platform.python_version(), 'platform': platform.system()},
-               'claims': [], 'status': 'execution_error', 'artifacts': {}}
-    before = check_inputs(root, m)
-    if before:
-        receipt.update(status='input_mismatch', input_errors=before)
-    else:
-        metrics_path = out / 'metrics.json'
-        command = [sys.executable if arg == '{python}' else str(metrics_path) if arg == '{output}' else arg for arg in m['command']]
-        command[1] = str(confined(root, m['command'][1]))
-        started = time.monotonic()
-        # Logs stay local; no environment variables or absolute command paths in receipt.
-        with (out / 'stdout.log').open('wb') as stdout, (out / 'stderr.log').open('wb') as stderr:
-            try:
-                from .execution import execute as execute_process
-                returncode,reason = execute_process(command,root,stdout,stderr,
-                    m.get('timeout_seconds',30),
-                    {'PATH':os.defpath,'PYTHONHASHSEED':'0','PYTHONIOENCODING':'utf-8'},state)
-                receipt['exit_code'] = returncode
-                if reason=='timeout':raise subprocess.TimeoutExpired(command,m.get('timeout_seconds',30))
-                if reason=='output_limit':
-                    receipt['error']='experiment log limit exceeded; metrics not evaluated'
-                    raise Invalid('bounded log limit')
-                after = check_inputs(root, m)
-                if after:
-                    receipt.update(status='input_mismatch', input_errors=after)
-                elif returncode != 0:
-                    receipt['error'] = 'experiment exited nonzero; metrics not evaluated'
-                elif not metrics_path.is_file() or metrics_path.is_symlink():
-                    receipt['error'] = 'experiment did not create a regular metrics file'
-                else:
-                    receipt['claims'] = evaluate(m['claims'], read_json(metrics_path))
-                    statuses = {c['status'] for c in receipt['claims']}
-                    receipt['status'] = ('insufficient_evidence' if 'insufficient_evidence' in statuses
-                                         else 'not_supported' if 'not_supported' in statuses else 'supported')
-            except subprocess.TimeoutExpired:
-                receipt['error'] = 'experiment timed out; metrics not evaluated'
-            except (Invalid, ValueError, OSError) as exc:
-                receipt.setdefault('error', f'metrics or execution error: {type(exc).__name__}')
-        receipt['duration_seconds'] = round(time.monotonic() - started, 6)
-        for name in ('metrics.json', 'stdout.log', 'stderr.log'):
-            file = out / name
-            if file.is_file() and not file.is_symlink():
-                receipt['artifacts'][name] = digest(file)
-    write_json(out / 'receipt.json', receipt)
-    (out / 'report.md').write_bytes(render(receipt).encode('utf-8'))
-    return receipt
+    from .private_run import Output
+    output = Output(out)
+    try:
+        # Keep a source manifest so receipts can be checked without external state.
+        output.write('manifest.json', encode_json(m))
+        receipt = {'schema_version': 1, 'tool_version': VERSION, 'title': m['title'],
+                   'source': m['source'], 'manifest_sha256': digest(out / 'manifest.json'),
+                   'environment': {'python': platform.python_version(), 'platform': platform.system()},
+                   'claims': [], 'status': 'execution_error', 'artifacts': {}}
+        before = check_inputs(root, m)
+        if before:
+            receipt.update(status='input_mismatch', input_errors=before)
+        else:
+            metrics_path = out / 'metrics.json'
+            command = [sys.executable if arg == '{python}' else str(metrics_path) if arg == '{output}' else arg for arg in m['command']]
+            command[1] = str(confined(root, m['command'][1]))
+            started = time.monotonic()
+            # Logs stay local; no environment variables or absolute command paths in receipt.
+            with output.open('stdout.log') as stdout, output.open('stderr.log') as stderr:
+                try:
+                    from .execution import execute as execute_process
+                    returncode,reason = execute_process(command,root,stdout,stderr,
+                        m.get('timeout_seconds',30),
+                        {'PATH':os.defpath,'PYTHONHASHSEED':'0','PYTHONIOENCODING':'utf-8'},state)
+                    receipt['exit_code'] = returncode
+                    if reason=='timeout':raise subprocess.TimeoutExpired(command,m.get('timeout_seconds',30))
+                    if reason=='output_limit':
+                        receipt['error']='experiment log limit exceeded; metrics not evaluated'
+                        raise Invalid('bounded log limit')
+                    output.check()
+                    after = check_inputs(root, m)
+                    if after:
+                        receipt.update(status='input_mismatch', input_errors=after)
+                    elif returncode != 0:
+                        receipt['error'] = 'experiment exited nonzero; metrics not evaluated'
+                    elif not metrics_path.is_file() or metrics_path.is_symlink():
+                        receipt['error'] = 'experiment did not create a regular metrics file'
+                    else:
+                        receipt['claims'] = evaluate(m['claims'], read_json(metrics_path))
+                        statuses = {c['status'] for c in receipt['claims']}
+                        receipt['status'] = ('insufficient_evidence' if 'insufficient_evidence' in statuses
+                                             else 'not_supported' if 'not_supported' in statuses else 'supported')
+                except subprocess.TimeoutExpired:
+                    receipt['error'] = 'experiment timed out; metrics not evaluated'
+                except (Invalid, ValueError, OSError) as exc:
+                    receipt.setdefault('error', f'metrics or execution error: {type(exc).__name__}')
+            receipt['duration_seconds'] = round(time.monotonic() - started, 6)
+            for name in ('metrics.json', 'stdout.log', 'stderr.log'):
+                file = out / name
+                if file.is_file() and not file.is_symlink():
+                    receipt['artifacts'][name] = digest(file)
+        output.write('receipt.json', encode_json(receipt))
+        output.write('report.md', render(receipt).encode('utf-8'))
+        return receipt
+
+    finally:
+        output.close()
 
 
 def render(receipt):

@@ -43,7 +43,8 @@ def execute(command,cwd,stdout,stderr,timeout,env,state):
         state['cleaning']=True
         try:
             process=subprocess.Popen(command,cwd=cwd,stdout=stdout,stderr=stderr,
-                stdin=subprocess.DEVNULL,env=env,start_new_session=(os.name=='posix'))
+                stdin=subprocess.DEVNULL,env=env,start_new_session=(os.name=='posix'),
+                **({'umask':0o077} if os.name=='posix' else {}))
         finally:state['cleaning']=False
         if state['signal'] is not None:raise Cancelled(state['signal'])
         while True:
