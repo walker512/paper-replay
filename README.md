@@ -42,7 +42,7 @@ paper-replay verify run-speceval
 
 ## Security and limitations
 
-**Run only trusted, reviewed scripts. This tool is NOT a sandbox.** `--allow-execute` grants the Python script the current user's local privileges. Hashes establish file identity, not safety. Do not execute manifests downloaded from strangers. No network, filesystem or subprocess isolation is provided. Timeout affects the direct process; descendants may survive. Logs have no size bound. Use an independently configured disposable sandbox for external code.
+**Run only trusted, reviewed scripts. This tool is NOT a sandbox.** `--allow-execute` grants the Python script the current user's local privileges. Hashes establish file identity, not safety. Do not execute manifests downloaded from strangers. No network, filesystem or subprocess isolation is provided. The reviewed runner now bounds retained stdout/stderr and cleans its POSIX process group on normal exit, timeout and catchable cancellation. Windows cleanup is direct-process only; descendants may survive. See the precise lifecycle limits below. Use an independently configured disposable sandbox for external code.
 
 Receipts are unsigned. Verification proves internal consistency only: an attacker who replaces both manifest and artifacts can create a new self-consistent bundle. Environment fields are self-reported. The tool does not recreate dependencies, validate every imported module, preserve the full environment or certify source provenance. Logs/metrics may contain secrets; inspect before sharing. No automatic upload exists.
 
@@ -52,7 +52,7 @@ Limits: Python entry scripts only; flat JSON metrics; absolute numeric tolerance
 
 From the extracted source folder, `python -m paper_replay ...` runs without installation. For an installed `paper-replay` command, create a virtual environment and run `python -m pip install .` there. The build uses setuptools; no runtime dependencies are required. This source distribution is not a claim of publication on PyPI.
 
-Run `python -m unittest discover -s tests -v`. These public tests execute reviewed bundled code and synthetic temporary scripts; they are not an untrusted-code sandbox. The standard suite does not download data, call models, or run fresh CMA optimization. Windows skips two POSIX-only cases. Use a new output directory for every example; outputs are never silently overwritten.
+Run `python -m unittest discover -s tests -v`. These public tests execute reviewed bundled code and synthetic temporary scripts; they are not an untrusted-code sandbox. The standard suite does not download data, call models, or run fresh CMA optimization. The historical 74-test suite marked two cases POSIX-only; this correction adds five more POSIX-only cases. These seven cases are configured to skip on Windows, but the current candidate has not been run on Windows. Use a new output directory for every example; outputs are never silently overwritten.
 
 ## Verified scope and practical value
 
@@ -78,3 +78,44 @@ See [the direct competitor study](docs/DIRECT_COMPETITORS.md): testing does **no
 ## Receiving results in CI
 
 Use `paper-replay verify BUNDLE --require-supported` when a downstream job must require **both** evidence integrity and all declared checks passing. Exit 0 passes that explicit gate; exit 2 means the bundle is consistent but claims are negative or incomplete, execution failed, or input fingerprints do not match the manifest; exit 1 means invalid/missing/tampered evidence. Without the flag, `verify` retains its integrity-only behavior and returns 0 for consistent negative-result bundles. Imported results remain unexecuted, regardless of gate success. No authenticity, freshness or scientific validity is implied.
+
+
+## Bounded local runner lifecycle
+
+The additive lifecycle correction retains at most **1 MiB per stdout/stderr log**.
+Sizes are polled every 10 ms while the trusted script runs and checked again at
+exit. Exceeding either cap produces `execution_error`, does not evaluate metrics,
+and retains only the first 1 MiB of each log. Truncated logs cannot be used as a
+complete transcript. Polling is **not** a hard transient disk, memory or CPU
+quota: a fast writer may overshoot before being terminated. Metrics and other
+files still have the existing artifact limits; arbitrary script filesystem
+writes are not contained. An oversized independent artifact can still prevent
+a completed receipt. This is not a sandbox or permission boundary.
+
+On POSIX the experiment starts a new session; its original process group is
+killed and its direct process reaped on exit, timeout or SIGINT/SIGTERM in the
+runner's main thread. This also stops ordinary background children when their
+parent exits successfully. Scripts needing persistent background workers are
+therefore incompatible. Children that deliberately detach into another session,
+remote jobs and uncatchable runner termination (SIGKILL, crash, power loss) are
+not covered. Windows only terminates/reaps the direct process; no job-object or
+descendant guarantee is made. Non-main-thread Python callers cannot install the
+signal handlers. Existing handlers are restored after the call.
+
+A catchable cancellation is propagated through launch, cleanup and result
+processing rather than being converted into success. CLI returns 128 + signal
+number (130 for SIGINT, 143 for SIGTERM), with a fixed diagnostic. Partial files
+can remain. A very late cancellation can occur after evidence writes; artifact
+existence alone is not an execution-completion signal. Use the actual command
+exit status and offline integrity check; receipts are still unsigned and not
+proof of scientific validity or provenance. Cleanup and filesystem operations
+can exceed the nominal experiment timeout, so it is not a strict wall deadline.
+
+Validation of this correction: **85 local Linux/Python 3.12 tests, zero skips**.
+The added 11 cases include real high-output scripts, regular/nonzero launch
+paths, direct timeout, ordinary descendant cleanup after leader exit and timeout,
+real CLI SIGTERM, launch-window SIGINT and postprocessing cancellation. The
+existing 74 tests remain unchanged. The new correction has not been run on
+Windows/macOS, and no new hosted CI or UI result is claimed. No workflow file is
+changed. Original API/manifest/receipt versions and imported-result semantics
+remain unchanged.
