@@ -21,3 +21,16 @@ Security regressions cover boolean/numeric distinctions, finite JSON numbers, bo
 - VeriRepro's tested comparison component has different missing-value coverage semantics; its full pipeline was not evaluated. ReproZip capture/replay was blocked by host ptrace restrictions, not shown to be inferior.
 
 No real-user timing/adoption study, growth guarantee, overall superiority, environment reconstruction guarantee or authentication of unsigned evidence is established. Private raw comparison logs are excluded; the reviewed comparison summaries preserve limits and adverse results.
+
+
+## Runner lifecycle correction (new local candidate)
+
+85 Linux/Python 3.12 tests pass, zero skipped (74 existing unchanged + 11 new).
+Real processes exercise per-stream log ceilings, timeout, POSIX group cleanup
+and SIGTERM cancellation. Controlled injections cover spawn-window SIGINT,
+cleanup-phase deferred signals and postprocessing propagation. An offline wheel
+install runs the original finite-difference example and integrity gate outside
+the source checkout. This is not new Windows/macOS/hosted CI evidence and does
+not certify arbitrary untrusted scripts, detached descendants, hard-kill cleanup,
+transient disk bounds or real paper replication. README explains lifecycle and
+partial-artifact limitations. No CI workflow is included in this change.
