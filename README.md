@@ -170,7 +170,11 @@ comparisons made while fixing an already failing run.
 | --- | --- |
 | `0` | Verified comparison passed the stable-claims policy. |
 | `2` | Verified comparison was blocked. JSON `reasons` lists fixed codes, not metric values or claim text. |
-| `1` | Evidence or comparison failed verification. No policy verdict is emitted. |
+| `1` | Evidence or comparison failed verification, or the gate command was invoked incorrectly. No policy verdict is emitted. |
+
+`compare-gate --help` still exits 0 and prints usage, not a verdict. For
+automation, invoke the gate with a bundle and consume its JSON verdict when
+the exit status is 0 or 2.
 
 The gate allows changes to declared inputs, scripts, commands and environments:
 inspect those separately in `comparison.json`. A pass does not prove scientific
