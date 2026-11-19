@@ -122,13 +122,25 @@ remain unchanged.
 
 ## Compare two existing evidence runs offline
 
+To try the full workflow from a fresh source folder, first review the bundled
+[finite-difference script](examples/finite_difference/experiment.py). Then run:
+
 ```sh
-python -m paper_replay compare-runs before-bundle after-bundle --out new-comparison
+python -m paper_replay run examples/finite_difference/manifest.json --out compare-baseline --allow-execute
+python -m paper_replay run examples/finite_difference/manifest.json --out compare-candidate --allow-execute
+python -m paper_replay compare-runs compare-baseline compare-candidate --out new-comparison
 python -m paper_replay compare-verify new-comparison
 python -m paper_replay compare-gate new-comparison
 ```
 
-These commands **never execute experiment code**. Each side is captured into a
+The first two commands execute the reviewed sample locally; the runner is **not
+sandboxed**. Use unused directory names for all three outputs. Both runs use the
+same bundled example, so the expected gate result is `"passed": true`. This
+checks the workflow, not whether a new implementation improved an experiment.
+If you already have two evidence bundles, skip the two `run` commands and
+substitute the existing bundle paths in `compare-runs`.
+
+The comparison, verification and gate commands **never execute experiment code**. Each side is captured into a
 bounded snapshot and verified with the existing receipt verifier before comparison.
 The deterministic `comparison.json` shows claim additions/removals, changed statements,
 metrics, expectations and absolute tolerances, before/after claim results, numeric
