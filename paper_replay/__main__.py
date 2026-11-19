@@ -23,7 +23,15 @@ def main():
     c = sub.add_parser('compare-verify'); c.add_argument('bundle')
     c = sub.add_parser('compare-gate', help='Require both snapshots to support unchanged claims')
     c.add_argument('bundle')
-    a = p.parse_args()
+    argv = sys.argv[1:]
+    try:
+        a = p.parse_args(argv)
+    except SystemExit as exc:
+        # Argparse normally uses 2 for misuse; the stable-claims gate reserves
+        # that code for verified rejection with a machine-readable verdict.
+        if argv[:1] == ['compare-gate'] and exc.code == 2:
+            return 1
+        raise
     try:
         if a.action in ('compare-runs', 'compare-verify', 'compare-gate'):
             from . import comparison
