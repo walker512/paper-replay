@@ -21,17 +21,23 @@ def main():
     c = sub.add_parser('compare-runs', help='Compare two verified evidence snapshots offline; never execute code')
     c.add_argument('before'); c.add_argument('after'); c.add_argument('--out', required=True)
     c = sub.add_parser('compare-verify'); c.add_argument('bundle')
+    c = sub.add_parser('compare-gate', help='Require both snapshots to support unchanged claims')
+    c.add_argument('bundle')
     a = p.parse_args()
     try:
-        if a.action in ('compare-runs', 'compare-verify'):
+        if a.action in ('compare-runs', 'compare-verify', 'compare-gate'):
             from . import comparison
             try:
-                result = (comparison.verify(a.bundle) if a.action == 'compare-verify'
-                          else comparison.build(a.before, a.after, a.out))
+                if a.action == 'compare-gate':
+                    result = comparison.gate(a.bundle)
+                elif a.action == 'compare-verify':
+                    result = comparison.verify(a.bundle)
+                else:
+                    result = comparison.build(a.before, a.after, a.out)
             except (ValueError, OSError, KeyError, TypeError, AttributeError, OverflowError, RecursionError):
                 print('Error: comparison evidence or output failed validation; private values omitted.', file=sys.stderr)
                 return 1
-            code = 0
+            code = 2 if a.action == 'compare-gate' and not result['passed'] else 0
         elif a.action == 'validate':
             path = Path(a.manifest).resolve(); m = load_manifest(path)
             issues = check_inputs(path.parent, m)

@@ -139,7 +139,7 @@ def build(before, after, out):
     return {'consistent':True,'improvement_established':False,'notice':NOTICE}
 
 
-def verify(folder):
+def _verified_report(folder):
     root = Path(folder)
     if root.is_symlink() or not root.is_dir() or {p.name for p in root.iterdir()} != {'before','after','comparison.json'}:
         raise core.Invalid('Unexpected comparison bundle')
@@ -147,6 +147,32 @@ def verify(folder):
     for name, data in (('before',a),('after',b)):
         if {p.name for p in (root/name).iterdir()} != set(data):
             raise core.Invalid('Unexpected snapshot member')
-    if read(root/'comparison.json') != analyze(a,b):
+    report = read(root/'comparison.json')
+    if report != analyze(a,b):
         raise core.Invalid('Comparison differs from recomputation')
+    return report
+
+
+def verify(folder):
+    _verified_report(folder)
     return {'consistent':True,'improvement_established':False,'notice':NOTICE}
+
+
+def gate(folder):
+    """Check a verified comparison against a stable-claims policy."""
+    report = core.parse_json_bytes(_verified_report(folder))
+    before, after = report['before'], report['after']
+    reasons = []
+    if before['status'] != 'supported':
+        reasons.append('baseline_not_supported')
+    if after['status'] != 'supported':
+        reasons.append('candidate_not_supported')
+    if any(row['flags'] for row in report['claim_changes']):
+        reasons.append('claims_changed')
+    if before['mode'] != after['mode']:
+        reasons.append('evidence_mode_changed')
+    elif before['mode'] == 'imported' and before['selection'] != after['selection']:
+        reasons.append('import_selection_changed')
+    return {'schema_version': 1, 'kind': 'stable-claims-gate',
+            'consistent': True, 'passed': not reasons, 'reasons': reasons,
+            'improvement_established': False}

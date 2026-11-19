@@ -125,6 +125,7 @@ remain unchanged.
 ```sh
 python -m paper_replay compare-runs before-bundle after-bundle --out new-comparison
 python -m paper_replay compare-verify new-comparison
+python -m paper_replay compare-gate new-comparison
 ```
 
 These commands **never execute experiment code**. Each side is captured into a
@@ -143,7 +144,25 @@ Imported metrics are distinctly labeled and are not a rerun. Even matching scrip
 hash declarations do not verify the original script or data bytes: legacy bundles
 retain declarations, not all external inputs. Source age, authenticity, scientific
 meaning, chronology, environment equivalence and causal attribution remain unknown.
-`improvement_established` is always false. Exit 0 means consistency only.
+`improvement_established` is always false. For `compare-verify`, exit 0 means
+consistency only, even if the candidate no longer supports its claims.
+
+Use `compare-gate` in CI to keep the goalposts fixed when changing experiment
+code or regenerating metrics. It first verifies the bundle, then requires both
+snapshots to support the same claim IDs and definitions (including tolerances),
+use the same evidence mode, and, for imports, select the same JSON pointer.
+An unsupported baseline also blocks the gate; use `compare-verify` to inspect
+comparisons made while fixing an already failing run.
+
+| Exit | Meaning |
+| --- | --- |
+| `0` | Verified comparison passed the stable-claims policy. |
+| `2` | Verified comparison was blocked. JSON `reasons` lists fixed codes, not metric values or claim text. |
+| `1` | Evidence or comparison failed verification. No policy verdict is emitted. |
+
+The gate allows changes to declared inputs, scripts, commands and environments:
+inspect those separately in `comparison.json`. A pass does not prove scientific
+improvement, authenticity, comparable data, or an identical experiment.
 
 The output retains the complete selected evidence files, potentially including
 sensitive metrics, stdout and stderr. Nothing is redacted. Original `report.md`
